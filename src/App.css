@@ -53,6 +53,11 @@
   background-color: #a93776;
   padding: 20px 10px;
 }
+.main--menu__item a.active{
+  font-weight: bold;
+
+  background-color:#7b2957;
+}
 
 .App-main{
   text-align: left;
@@ -71,6 +76,9 @@
 .sidebar--features__ul{
   background-color:#f0f8ff;
   padding:1rem;
+}
+.sidebar--features__item{
+  margin-bottom: 1rem;
 }
 
 section{

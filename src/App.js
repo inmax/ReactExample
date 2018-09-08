@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import LogoInicio from './components/LogoInicio';
-import Pageprueba from './Page/Page1';
+import Pageprueba from './Page/Page3';
 import Titulo from './components/Titulo';
 import MenuMain from './components/MenuMain';
 import Sidebar from './components/Sidebar';

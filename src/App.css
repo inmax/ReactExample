@@ -22,6 +22,37 @@
   font-size: large;
 }
 
+/*SLIDES */
+.test{
+  position: relative;
+}
+.step{
+  position: absolute;
+  width:800px;
+  height: 400px;
+  display: flex;
+  flex-direction:column;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transition: opacity 0.5s ease-in-out;
+  z-index: 0;
+}
+.step.show{
+  
+    opacity: 1;
+    z-index: 1;
+  
+}
+.intro{
+  background-color: rgb(223, 229, 50);
+}
+.preguntas{
+  background-color: rgb(229, 137, 48);
+}
+.result{
+  background-color: rgb(48, 167, 229);
+}
 
 
 @keyframes App-logo-spin {

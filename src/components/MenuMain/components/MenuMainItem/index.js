@@ -4,7 +4,10 @@ class MenuMainItem extends React.Component {
 
     render(){
       return (
-        <li className="main--menu__item" data-active={this.props.active}><a href={this.props.anchor}>{this.props.text}</a></li>
+        <li className="main--menu__item" active={this.props.active}>
+          <a href={this.props.anchor}>
+            {this.props.text}</a>
+          </li>
       )
     }
 }

@@ -8,4 +8,4 @@ class Parrafo extends React.Component{
     }
 }
 
-export default Parrafo;//solo uno por ficheros cuando es por default
+export default Parrafo;//solo uno por ficheros cuando es por default´

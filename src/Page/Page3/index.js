@@ -2,6 +2,9 @@ import React, { Component } from 'react';
 import IntroTest from './components/IntroTest';
 import Swiper from "react-id-swiper";
 
+let goNextDelay;
+var times=0;
+
 class Page extends React.Component {
     constructor(props) {
         super(props);
@@ -19,39 +22,61 @@ class Page extends React.Component {
 			showTest : true,
             showIntro: false,
             showResult: false,
-		});
+        });
+        
 	}
 	finishTest = () =>{
-		//condición para que finalice el test setTimeOut
-		this.setState({
-			showTest : false,
-			showIntro: false,
-			showResult: true,
-        });
-
+        //condición para que finalice el test setTimeOut
+                this.setState({
+                    showTest : false,
+                    showIntro: false,
+                    showResult: true,
+                });   
 	}
 	againTest = () => {
+        this.timesRepeat();
 		//Condición de cuantas veces se puede repetir el test
         //resetear todos los campos
-        this.updateSwipe;
-		this.setState({
-			showTest : true,
-			showIntro: false,
-			showResult: false,
-		});
+        if (this.swiper) {
+            this.swiper.slideTo(0,0,false);
+            this.setState({
+                showTest : true,
+                showIntro: false,
+                showResult: false,
+            });
+            
+        };
     }
-    updateSwiper = () => {
-        if (this.swiper) this.swiper.update();
-    }
+    
     goNext = () => {
-		if (this.swiper) this.swiper.slideNext();
-	};
+        if (this.swiper) {
+            let _this = this;
 
-	goPrev = () => {
-		if (this.swiper) this.swiper.slidePrev();
+            goNextDelay = setTimeout(function() {
+                if(_this.swiper.activeIndex == _this.swiper.slides.length -1){
+                    _this.finishTest();
+                }else{
+                    _this.swiper.slideNext();
+                }
+			}, 1500);
+        }
     };
     
+    timesRepeat = () => {
+        this.swiper.on('fromEdge', function () {
+            times = times +1 ;
+            console.log(times);
+        });
+    } 
+
+   
     
+     ComponentDidMount(){
+        clearTimeout(goNextDelay);
+        console.log('acabo ejecutar clearTimeout');
+     }
+
+        
     render(){
 
 
